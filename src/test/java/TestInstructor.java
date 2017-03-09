@@ -64,4 +64,15 @@ public class TestInstructor {
         assertFalse(this.instructor.getGrade("Class", 2017,
                                 "Homework", "Student") == null);
     }
+
+    //Testing for grading homework when it's not been submitted
+    @Test
+    public void testNotSubmitted(){
+        this.admin.createClass("Class", 2017, "Instructor", 5);
+        this.instructor.addHomework("Instructor", "Class", 2017,
+                "Homework", "First");
+        this.student.registerForClass("Student", "Class", 2017);
+        this.instructor.assignGrade("Instructor", "Class", 2016, "Homework", "Student", 50);
+        assertFalse(this.instructor.getGrade("Class", 2017, "Homework", "Student") != null);
+    }
 }
