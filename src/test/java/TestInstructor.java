@@ -66,6 +66,7 @@ public class TestInstructor {
     }
 
     //Testing for grading homework when it's not been submitted
+    //BUG!
     @Test
     public void testNotSubmitted(){
         this.admin.createClass("Class", 2017, "Instructor", 5);
